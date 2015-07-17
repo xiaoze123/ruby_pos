@@ -1,0 +1,2 @@
+module PospageHelper
+end

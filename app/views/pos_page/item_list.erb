@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <th><h1>商品列表</h1></th>
+  </tr>
+  <tr>
+    <td>
+      <% if @items !=nil %>
+          <table id="shopping">
+            <tr>
+              <td>分类</td>
+              <td>名称</td>
+              <td>单价（元）</td>
+              <td>单位</td>
+              <td></td>
+            </tr>
+            </tr>
+            <% @items.each  do |item| %>
+                <tr>
+                <td>
+                <%= item.category %></td>
+                <td>
+                <%= item.name %></td>
+                <td>
+                <%= item.price %></td>
+                <td>
+                <%= item.unit %></td>
+                <td>
+                <button onclick="get_cart_list(this.id)" id=<%= item.id %>>加入购物车</button>
+                </td>
+                </tr>
+                <% end %>
+          </table>
+      <% end %>
+    </td>
+  </tr>
+</table>

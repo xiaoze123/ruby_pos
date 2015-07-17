@@ -1,0 +1,39 @@
+th, td {
+    border: 1px solid #999999;
+    text-align: center;
+}
+
+#goods_list, table {
+    border-collapse: collapse;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 90%;
+}
+
+table tr td {
+    height: 40px;
+}
+
+#goods_list {
+    width: 98%;
+}
+
+table tr th {
+    background-color: rgb(245, 245, 245);
+}
+
+button {
+    color: white;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(88, 135, 207);
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+#goods_list td {
+    height: 50px;
+}

@@ -1,0 +1,40 @@
+
+<table>
+  <tr>
+    <td><div id ='title'>购物清单</div></td>
+  </tr>
+  <tr>
+    <%if @items !=nil %>
+    <table>
+      <tr>
+        <th>分类</th>
+        <th>名称</th>
+        <th>单价（元）</th>
+        <th>单位</th>
+        <th>数量</th>
+        <th>小计</th>
+      </tr>
+      <%@items.each  do |item| %>
+          <tr>
+            <td>
+              <%= item.category %></td>
+            <td>
+              <%= item.name %></td>
+            <td>
+              <%= item.price %></td>
+            <td>
+              <%= item.unit %></td>
+            <td>
+             <button onclick="show_number(this.id,'-')" id=<%= item.id %>>-</button>
+              <input type="text" class= <%= item.id %>    value=<%= item.count %>>
+              <button onclick="show_number(this.id,'+')" id=<%= item.id %>>+</button>
+            </td>
+            <td>
+
+            </td>
+          </tr>
+      <%end%>
+    </table>
+    <%end%>
+  </tr>
+</table>

@@ -1,0 +1,73 @@
+<table>
+  <tr><th><p id="title">购物清单</p></th></tr>
+  <tr>
+    <td>
+      <% if @items != nil %>
+          <table id="items_list">
+            <tr>
+              <td>分类</td>
+              <td>名称</td>
+              <td>单价（元）</td>
+              <td>单位</td>
+              <td>数量</td>
+              <td>小计</td>
+            </tr>
+            </tr>
+            <% @items.each do |item| %>
+                <tr>
+                  <td>
+                    <%= item.category %></td>
+                  <td>
+                    <%= item.name %></td>
+                  <td>
+                    <%= item.price %></td>
+                  <td>
+                    <%= item.unit %></td>
+                  <td>
+                    <%= item.count %>
+                  </td>
+                  <% if PoromationItem.find_by_name(item.name)==nil%>
+                      <td style="width: 400px" id=<%= item.name %>><%= item.price*item.count %>(元)</td>
+                  <% else %>
+                      <td style="width: 400px" id=<%= item.name %>><%= item.price*(item.count - item.count/3)%>(元)(原价:<%= item.price*item.count%>(元))</td>
+                  <% end %>
+                </tr>
+            <% end %>
+          </table>
+      <tr><th><p id="title"> 赠送商品</p></th></tr>
+
+      <tr>
+        <td>
+          <table id="items_list">
+            <tr>
+              <td>分类</td>
+              <td>名称</td>
+              <td>数量</td>
+            </tr>
+            </tr>
+            <% @items.each do |item| %>
+                <% if PoromationItem.find_by_name(item.name)!=nil&&item.count/3!=0 %>
+                    <tr>
+                      <td>
+                        <%= item.category %></td>
+                      <td>
+                        <%= item.name %></td>
+                      <td>
+                        <%= item.count/3 %>
+                      </td>
+                    </tr>
+                <% end %>
+            <% end %>
+          </table>
+          <div class="button">
+            <p id="sum"> 总计：<%= @sum%>(元)</p>
+            <p id="sum"> 节省：<%= @poroation_sum%>(元)</p>
+            <button onclick="window.location.href='/index/pay_delete'">确定</button>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </td>
+  </tr>
+
+</table>
