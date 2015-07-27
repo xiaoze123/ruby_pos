@@ -1,5 +1,11 @@
+<link rel="stylesheet" href="Css/cart.css" type="text/css">
+<link rel="stylesheet" href="Css/pay.css" type="text/css">
 <table>
-  <tr><th><p id="title">购物清单</p></th></tr>
+  <tr>
+    <th>
+      <p id="title">购物清单</p>
+    </th>
+  </tr>
   <tr>
     <td>
       <% if @items != nil %>
@@ -26,7 +32,7 @@
                   <td>
                     <%= item.count %>
                   </td>
-                  <% if PoromationItem.find_by_name(item.name)==nil%>
+                  <% if PoromationItems.find_by_barcode(item.barcode)==nil%>
                       <td style="width: 400px" id=<%= item.name %>><%= item.price*item.count %>(元)</td>
                   <% else %>
                       <td style="width: 400px" id=<%= item.name %>><%= item.price*(item.count - item.count/3)%>(元)(原价:<%= item.price*item.count%>(元))</td>
@@ -34,8 +40,11 @@
                 </tr>
             <% end %>
           </table>
-      <tr><th><p id="title"> 赠送商品</p></th></tr>
-
+      <tr>
+        <th>
+          <p id="title"> 赠送商品</p>
+        </th>
+      </tr>
       <tr>
         <td>
           <table id="items_list">
@@ -46,7 +55,7 @@
             </tr>
             </tr>
             <% @items.each do |item| %>
-                <% if PoromationItem.find_by_name(item.name)!=nil&&item.count/3!=0 %>
+                <% if PoromationItems.find_by_barcode(item.barcode)!=nil&&item.count/3!=0 %>
                     <tr>
                       <td>
                         <%= item.category %></td>
@@ -59,10 +68,11 @@
                 <% end %>
             <% end %>
           </table>
+
           <div class="button">
             <p id="sum"> 总计：<%= @sum%>(元)</p>
             <p id="sum"> 节省：<%= @poroation_sum%>(元)</p>
-            <button onclick="window.location.href='/index/pay_delete'">确定</button>
+            <button onclick="window.location.href='/pos_page/pay_delete'">确定</button>
           </div>
         </td>
       </tr>

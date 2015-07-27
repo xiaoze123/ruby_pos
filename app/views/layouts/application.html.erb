@@ -5,12 +5,12 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <div id="navigation">
+  <div id="navigation_box">
     <ul>
-<li><a href="/pos_page/item_list">Let'sGo</a></li>
-<li><a href="/pos_page/home_page">主页</a></li>
-<li><a href="/pos_page/item_list">商品列表</a></li>
-<li class="right"><a href="/pos_page/cart"><%= image_tag('cart.png')%>购物车
+        <li><a href="/pos_page/item_list">Let'sGo</a></li>
+        <li><a href="/pos_page/home_page">主页</a></li>
+        <li><a href="/pos_page/item_list">商品列表</a></li>
+        <li class="right"><a href="/pos_page/cart"><%= image_tag('cart.png')%>购物车
   <span id="number">(<%= @number %>)</span></a></li>
 </ul>
 </div>

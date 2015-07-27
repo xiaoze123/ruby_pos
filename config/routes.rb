@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   root 'pos_page#home_page'
   get 'pos_page/home_page'
   get '/pos_page/item_list'
-  get '/item_list'=>'pos_page#item_list'
-  get '/pos_page/cart'
+  get '/get_cart_list'=>'pos_page#get_cart_list'
+  get 'pos_page/cart'
+  get 'pos_page/pay'
+  get '/show_number'=>'pos_page#show_number'
+  get '/pay'=>'pos_page#pay'
+  get '/pos_page/pay_delete'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -25,7 +25,7 @@ table tr th {
     background-color: rgb(245, 245, 245);
 }
 
-button {
+.button1 {
     color: white;
     height: 30px;
     width: 100px;

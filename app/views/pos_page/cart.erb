@@ -1,11 +1,12 @@
 
 <table>
   <tr>
-    <td><div id ='title'>购物清单</div></td>
+    <th><div id ='title'>购物清单</div></th>
   </tr>
   <tr>
+    <td>
     <%if @items !=nil %>
-    <table>
+    <table id ="items_list">
       <tr>
         <th>分类</th>
         <th>名称</th>
@@ -14,8 +15,9 @@
         <th>数量</th>
         <th>小计</th>
       </tr>
-      <%@items.each  do |item| %>
-          <tr>
+      </tr>
+      <% @items.each  do |item| %>
+          <tr id= <%="tr_" + item.id.to_s %> >
             <td>
               <%= item.category %></td>
             <td>
@@ -25,16 +27,24 @@
             <td>
               <%= item.unit %></td>
             <td>
-             <button onclick="show_number(this.id,'-')" id=<%= item.id %>>-</button>
+             <button class="bnt" onclick="show_number(this.id,'-')" id=<%= item.id %>>-</button>
               <input type="text" class= <%= item.id %>    value=<%= item.count %>>
-              <button onclick="show_number(this.id,'+')" id=<%= item.id %>>+</button>
+              <button class="bnt" onclick="show_number(this.id,'+')" id=<%= item.id %>>+</button>
             </td>
-            <td>
 
-            </td>
+            <% if PoromationItems.find_by_barcode(item.barcode)==nil%>
+                <td style="width: 400px" id=<%= item.name %>><%= item.price*item.count %>(元)</td>
+            <% else %>
+                <td style="width: 400px" id=<%= item.name %>><%= item.price*(item.count - item.count/3)%>(元)(原价:<%= item.price*item.count%>(元))</td>
+            <% end %>
           </tr>
       <%end%>
     </table>
+        <div class="button">
+          <p id="sum"> 总计<%= @sum%>(元)</p>
+          <button onclick="open_pay_page()">付款</button>
+        </div>
     <%end%>
+    </td>
   </tr>
 </table>

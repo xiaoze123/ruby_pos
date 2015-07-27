@@ -1,0 +1,26 @@
+td{
+    text-align: center;
+    height: 50px;
+}
+#promotion_item{
+    width: 98%;
+    text-align: center;
+}
+.button{
+    height: 150px;
+}
+.items_list{
+    height: 100px;
+}
+#promotion_item td{
+    height: 50px;
+}
+#time{
+    padding-left: 1%;
+    height: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px     ;
+}
+#items_list{
+    margin-bottom: 50px;
+}
