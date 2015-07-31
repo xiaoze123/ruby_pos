@@ -15,12 +15,13 @@ td{
 #promotion_item td{
     height: 50px;
 }
-#time{
-    padding-left: 1%;
-    height: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px     ;
-}
+
 #items_list{
     margin-bottom: 50px;
+}
+#show_time{
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: left;
 }

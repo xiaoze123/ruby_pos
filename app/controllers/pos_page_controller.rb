@@ -61,5 +61,7 @@ class PosPageController < ApplicationController
     CartList.delete_all
     redirect_to '/pos_page/item_list'
   end
+
+
 end
 

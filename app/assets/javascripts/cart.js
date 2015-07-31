@@ -50,3 +50,22 @@ function get_item_sum(item, item_sum) {
     }
     return item_sum;
 }
+$().ready(function(){
+   show_time()
+});
+function show_time() {
+
+    dateDigitToString = function (num) {
+        return num < 10 ? '0' + num : num;
+    };
+    var currentDate = new Date()
+    year = dateDigitToString(currentDate.getFullYear()),
+        month = dateDigitToString(currentDate.getMonth() + 1),
+        date = dateDigitToString(currentDate.getDate()),
+        hour = dateDigitToString(currentDate.getHours()),
+        minute = dateDigitToString(currentDate.getMinutes()),
+        second = dateDigitToString(currentDate.getSeconds()),
+       formattedDateString = year + '年' + month + '月' + date + '日 ' + hour + ':' + minute + ':' + second;
+    console.log(formattedDateString)
+    $('#show_time').html(formattedDateString);
+}

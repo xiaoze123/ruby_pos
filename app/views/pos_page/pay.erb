@@ -8,6 +8,7 @@
   </tr>
   <tr>
     <td>
+      <div id="show_time"> </div>
       <% if @items != nil %>
           <table id="items_list">
             <tr>
@@ -18,6 +19,7 @@
               <td>数量</td>
               <td>小计</td>
             </tr>
+
             </tr>
             <% @items.each do |item| %>
                 <tr>
